@@ -1,0 +1,22 @@
+Roteiro de analise dados em .CS até a coisa se tornar orgânica
+
+- Importar bibliotecas básicas usadas, pandas(pd), numpy(np) e seaborn(sns)
+- Fazer a leitura do arquivo: dataset = pd.read_csv('nomedoarquivo.csv') 
+- Printar linhas da tabela:  dataset.head() 
+- Vizualizar tipo de dado em cada coluna com: dataset.dtypes 
+- Verificar a quantidade de linhas e colunas: dataset.shape 
+- Opção de renomear colunas:  dataset.columns = ['nome1', 'nome2', 'nome3'] 
+- Vizualizar dataset com nomes de colunas alterados:  dataset.head()  |Retornará TRUE caso encontre valores do tipo NaN (Not a Number) ou nulo
+- Verificar se há valores nulos: dataset.isnull() 
+- Verificação de nulos em coluna:  dataset[dataset['nome1'].isnull()].head() 
+- Somar dados Nulos por atributos e vizualizar:  dataset.isnull().sum() 
+* SOBRE VALORES NULOS: Existem várias formas de tratar valores faltantes, vai depender da nescessidade do projeto
+há situações onde não podem haver valores faltantes nos dados, e, alguns casos você pode excluir ou preencher com novos dados
+- Remover todas as  linhas com pelo menos um registro faltantes(se nescessário):   dataset.dropna(inplace=True)
+* Parametro INPLACE especificamos que a alteração será feita no dataset em memória
+- Consulte o número de valores faltantes novamente e veja quais linhas foram removidas: dataset.isnull().sum() 
+- Remover somente linhas que estejam com valores faltantes em todas as colunas: dataset.dropna(how='all', inplace=True)
+* Completar um valor pra registro faltante usamos:  fillna()
+-Exemplo: preencher valores faltantes com valor Zero, se for nescessario: dataset.fillna(0,inplace=True)
+- Varificar registros faltantes novmente: dataset.isnull().sum() 
+- Usar fiilna() para preencher com a média em algum atributo: dataset.fillna(dataset['nome da coluna'].mean())
