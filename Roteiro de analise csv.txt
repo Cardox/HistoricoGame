@@ -1,0 +1,22 @@
+Roteiro de analise dados em .CS até a coisa se tornar organica
+- Importar bibliotecas básicas usadas, pandas(pd), numpy(np) e seaborn(sns)
+- Fazer a leitura do arquivo ( dataframe = pd.read('nomedoarquivo.csv') )
+- Printar linhas da tabela ( dataframe.head() )
+- Vizualizar tipo de dado em cada coluna com ( dataframe.dtypes )
+- Verificar a quantidade de linhas e colunas ( dataframe.shape )
+- Opção de renomear colunas ( datframe.columns = ['nome1', 'nome2', 'nome3'] )
+- Vizualizar dataframe com nomes de colunas alterados ( dataframe.head() ) . Retornará TRUE caso encontre valores do tipo NaN (Not a Number) ou nulo
+- Verificar se há valores nulos ( dataframe.isnull() )
+- Verificação de nulos em coluna ( dataframe[dataframe['nome1'].isnull()].head() )
+- Somar dados Nulos por atributos e vizualizar ( dataframe.isnull().sum() )
+* ADENDO SOBRE VALORES NULOS: Existem várias formas de tratar valores faltantes, vai depender da nescessidade do projeto
+há situações onde não podem haver valores faltantes nos dados, e, alguns casos você pode excluir ou preencher com novos dados
+- Remover todas as  linhas com pelo menos um registro faltantes(se nescessário):  ( dataframe.dropna(inplace=True) )
+* Parametro INPLACE especificamos que a alteração será feita no dataframe em memória
+- Consulte o número de valores faltantes novamente e veja quais linhas foram removidas ( dataframe.isnull().sum() )
+- Remover somente linhas que estejam com valores faltantes em todas as colunas: dataframe.dropna(how='all', inplace=True)
+* Completar um valor pra registro faltante usamos fillna()
+-Exemplo: preencher valores faltantes com valor Zero, se for nescessario: dataframe.fillna(0,inplace=True)
+- Varificar registros faltantes novmente: dataframe.isnull().sum() 
+- Usar fiilna() para preencher com a média em algum atributo: dataframe.fillna(dataframe['nome da coluna'].mean())
+- c
